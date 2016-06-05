@@ -137,25 +137,19 @@ function write_config($config, $auth){
 	if(is_array($config)){
 		//读取配置内容
 		$conf = file_get_contents(MODULE_PATH . 'Data/conf.tpl');
-		$user = file_get_contents(MODULE_PATH . 'Data/user.tpl');
 		//替换配置项
 		foreach ($config as $name => $value) {
 			$conf = str_replace("[{$name}]", $value, $conf);
-			$user = str_replace("[{$name}]", $value, $user);
 		}
 
 		$conf = str_replace('[AUTH_KEY]', $auth, $conf);
-		$user = str_replace('[AUTH_KEY]', $auth, $user);
 
 		//写入应用配置文件
 		if(!IS_WRITE){
 			return '由于您的环境不可写，请复制下面的配置文件内容覆盖到相关的配置文件，然后再登录后台。<p>'.realpath(APP_PATH).'/Common/Conf/config.php</p>
-			<textarea name="" style="width:650px;height:185px">'.$conf.'</textarea>
-			<p>'.realpath(APP_PATH).'/User/Conf/config.php</p>
-			<textarea name="" style="width:650px;height:125px">'.$user.'</textarea>';
+			<textarea name="" style="width:650px;height:185px">'.$conf.'</textarea>';
 		}else{
-			if(file_put_contents(APP_PATH . 'Common/Conf/config.php', $conf) &&
-			   file_put_contents(APP_PATH . 'User/Conf/config.php', $user)){
+			if(file_put_contents(APP_PATH . 'Common/Conf/config.php', $conf)){
 				show_msg('配置文件写入成功');
 			} else {
 				show_msg('配置文件写入失败！', 'error');
