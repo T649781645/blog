@@ -17,10 +17,11 @@ define('RUNTIME_PATH', './RunTime/');
 //是否自动生成安全文件index.php
 define('DIR_SECURE_FILENAME', false);
 
-if(!is_file(APP_PATH . 'User/Conf/config.php')){
+//安装检测
+/*if(!is_file(APP_PATH . 'User/Conf/config.php')){
   header('Location: ./install.php');
   exit;
-}
+}*/
 
 // 引入ThinkPHP入口文件
 require './ThinkPHP/ThinkPHP.php';
