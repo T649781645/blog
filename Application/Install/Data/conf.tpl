@@ -1,11 +1,4 @@
 <?php
-// +----------------------------------------------------------------------
-// | OneThink [ WE CAN DO IT JUST THINK IT ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2013 http://www.onethink.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Author: 麦当苗儿 <zuojiazi@vip.qq.com> <http://www.zjzit.cn>
-// +----------------------------------------------------------------------
 
 /**
  * 系统配文件
@@ -15,7 +8,7 @@ return array(
     /* 模块相关配置 */
     'AUTOLOAD_NAMESPACE' => array('Addons' => ONETHINK_ADDON_PATH), //扩展模块列表
     'DEFAULT_MODULE'     => 'Home',
-    'MODULE_DENY_LIST'   => array('Common', 'User'),
+    'MODULE_DENY_LIST'   => array('Common'),
     //'MODULE_ALLOW_LIST'  => array('Home','Admin'),
 
     /* 系统数据加密设置 */
@@ -25,7 +18,6 @@ return array(
     'SHOW_PAGE_TRACE' => true,
 
     /* 用户相关设置 */
-    'USER_MAX_CACHE'     => 1000, //最大缓存用户数
     'USER_ADMINISTRATOR' => 1, //管理员用户ID
 
     /* URL配置 */
@@ -45,7 +37,4 @@ return array(
     'DB_PWD'    => '[DB_PWD]',  // 密码
     'DB_PORT'   => '[DB_PORT]', // 端口
     'DB_PREFIX' => '[DB_PREFIX]', // 数据库表前缀
-
-    /* 文档模型配置 (文档模型核心配置，请勿更改) */
-    'DOCUMENT_MODEL_TYPE' => array(2 => '主题', 1 => '目录', 3 => '段落'),
 );

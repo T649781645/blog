@@ -15,7 +15,7 @@ class IndexController extends Controller{
 	//安装首页
 	public function index(){
 		if(Storage::has(MODULE_PATH . './install.lock')){
-			$this->error('您已经成功安装了系统，请不要重复安装!如果确实需要重新安装请删除更目录下的install.lock');
+			$this->error('您已经成功安装了系统，请不要重复安装!如果确实需要重新安装请删除安装模块目录下的install.lock');
 		}
 		session_destroy();
 		session_start();
